@@ -125,11 +125,18 @@ class MachineTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MachineViewController, let machine = sourceViewController.machine {
-            // Add a new meal.
-            let newIndexPath = IndexPath(row: machines.count, section: 0)
-            machines.append(machine)
             
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing meal.
+                machines[selectedIndexPath.row] = machine
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // Add a new meal.
+                let newIndexPath = IndexPath(row: machines.count, section: 0)
+                machines.append(machine)
+                
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     
