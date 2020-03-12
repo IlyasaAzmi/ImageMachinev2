@@ -99,6 +99,19 @@ class MachineTableViewController: UITableViewController {
     }
     */
     
+    //MARK: Actions
+    
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? MachineViewController, let machine = sourceViewController.machine {
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: machines.count, section: 0)
+            machines.append(machine)
+            
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    
     //MARK: Private Methods
      
     private func loadSampleMachines() {

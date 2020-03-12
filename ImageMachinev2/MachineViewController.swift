@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import os.log
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
@@ -16,8 +17,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var setTextButton: UIButton!
     @IBOutlet weak var machineNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
-
+    var machine: Machine?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,8 +58,33 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK: Navigations
+    
+    // This method lets you configure a view controller before it's presented.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameTextField.text ?? ""
+        let photo = photoImageView.image
+        //            let rating = ratingControl.rating
+        let type = typeTextField.text ?? ""
+        let qrcode = Int.random(in: 1000..<10000)
+        let date = Date()
+        
+        
+        // Set the meal to be passed to MealTableViewController after the unwind segue.
+        machine = Machine(name: name, photo: photo, type: type, qrcode: qrcode, date: date)
+    }
+    
     
     //MARK: Actions
+    
     @IBAction func setTextButtonPressed(_ sender: UIButton) {
         machineNameLabel.text = "Default Machine"
     }

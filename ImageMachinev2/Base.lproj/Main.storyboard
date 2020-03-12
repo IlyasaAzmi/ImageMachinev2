@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Machine Table View Controller-->
+        <!--Machine List-->
         <scene sceneID="T3T-6z-3q5">
             <objects>
                 <tableViewController id="EH7-by-8dT" customClass="MachineTableViewController" customModule="ImageMachinev2" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,32 +53,38 @@
                             <outlet property="delegate" destination="EH7-by-8dT" id="gY0-4w-ngl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mGq-RJ-KQt"/>
+                    <navigationItem key="navigationItem" title="Machine List" id="mGq-RJ-KQt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2QI-0Z-Q64">
+                            <connections>
+                                <segue destination="Mbf-OX-cD8" kind="presentation" identifier="AddMachine" id="FLE-hA-Em6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kc-da-nKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="129.91071428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--New Machine-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageMachinev2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MachineViewController" customModule="ImageMachinev2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-Yx-DEt">
-                                <rect key="frame" x="20" y="125" width="374" height="34"/>
+                                <rect key="frame" x="20" y="137" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zqe-N3-5xv">
-                                <rect key="frame" x="20" y="179" width="374" height="34"/>
+                                <rect key="frame" x="20" y="191" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="pvb-QF-SMK">
-                                <rect key="frame" x="87" y="522" width="240" height="240"/>
+                                <rect key="frame" x="87" y="468" width="240" height="240"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="hwR-al-fFS"/>
@@ -88,13 +94,13 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r44-he-gia">
-                                <rect key="frame" x="20" y="84" width="374" height="21"/>
+                                <rect key="frame" x="20" y="96" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFk-Mh-ou7">
-                                <rect key="frame" x="20" y="243" width="374" height="30"/>
+                                <rect key="frame" x="20" y="255" width="374" height="30"/>
                                 <state key="normal" title="Set Text"/>
                                 <connections>
                                     <action selector="setTextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5sC-cB-yep"/>
@@ -121,22 +127,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Machine" id="cel-Un-VOF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7eN-em-yXw"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XpJ-xz-ZXh">
+                            <connections>
+                                <segue destination="cXe-46-6UW" kind="unwind" unwindAction="unwindToMealListWithSender:" id="CNt-nw-5ig"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="machineNameLabel" destination="r44-he-gia" id="cdf-9g-ZSb"/>
                         <outlet property="nameTextField" destination="C1W-Yx-DEt" id="MMB-gx-fUK"/>
                         <outlet property="photoImageView" destination="pvb-QF-SMK" id="tza-f1-n8F"/>
+                        <outlet property="saveButton" destination="XpJ-xz-ZXh" id="Ckl-ML-GeR"/>
                         <outlet property="setTextButton" destination="pFk-Mh-ou7" id="dld-5e-FEr"/>
                         <outlet property="typeTextField" destination="Zqe-N3-5xv" id="GNk-3T-UdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="cXe-46-6UW" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="tSl-s8-60E">
                     <connections>
                         <action selector="selectImageFromLibrary:" destination="BYZ-38-t0r" id="FGq-tm-iZ1"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1402.8985507246377" y="129.91071428571428"/>
+            <point key="canvasLocation" x="2313.04347826087" y="129.91071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x7A-ED-dao">
@@ -155,6 +171,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWE-hb-isS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-804.34782608695662" y="129.91071428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b3e-hO-Hid">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mbf-OX-cD8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fqe-8b-rJO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aKq-AE-v9T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TfZ-fa-v57" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1220" y="559"/>
         </scene>
     </scenes>
     <resources>
