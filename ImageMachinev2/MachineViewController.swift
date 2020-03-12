@@ -29,8 +29,18 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         nameTextField.delegate = self
         typeTextField.delegate = self
         
+        // Set up views if editing an existing Meal.
+        if let machine = machine {
+            navigationItem.title = machine.name
+            nameTextField.text   = machine.name
+            photoImageView.image = machine.photo
+//            ratingControl.rating = meal.rating
+        }
+        
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
+        
+        
     }
     
     //MARK: Text Field Delegate
@@ -93,6 +103,10 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         // Set the meal to be passed to MealTableViewController after the unwind segue.
         machine = Machine(name: name, photo: photo, type: type, qrcode: qrcode, date: date)
+    }
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     

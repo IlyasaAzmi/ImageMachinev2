@@ -45,6 +45,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="5ey-St-nYC" id="qib-AV-2f0"/>
                                     <outlet property="photoImageView" destination="cqa-11-zBb" id="E4I-wa-HGr"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="Osk-pb-UsG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,21 +71,21 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MachineViewController" customModule="ImageMachinev2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-Yx-DEt">
-                                <rect key="frame" x="20" y="137" width="374" height="34"/>
+                                <rect key="frame" x="20" y="169" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zqe-N3-5xv">
-                                <rect key="frame" x="20" y="191" width="374" height="34"/>
+                                <rect key="frame" x="20" y="223" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="pvb-QF-SMK">
-                                <rect key="frame" x="87" y="468" width="240" height="240"/>
+                                <rect key="frame" x="87" y="522" width="240" height="240"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="hwR-al-fFS"/>
@@ -94,13 +95,13 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r44-he-gia">
-                                <rect key="frame" x="20" y="96" width="374" height="21"/>
+                                <rect key="frame" x="20" y="128" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFk-Mh-ou7">
-                                <rect key="frame" x="20" y="255" width="374" height="30"/>
+                                <rect key="frame" x="20" y="287" width="374" height="30"/>
                                 <state key="normal" title="Set Text"/>
                                 <connections>
                                     <action selector="setTextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5sC-cB-yep"/>
@@ -128,7 +129,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Machine" id="cel-Un-VOF">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7eN-em-yXw"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7eN-em-yXw">
+                            <connections>
+                                <action selector="cancelButton:" destination="BYZ-38-t0r" id="cYh-Tl-GWJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="XpJ-xz-ZXh">
                             <connections>
                                 <segue destination="cXe-46-6UW" kind="unwind" unwindAction="unwindToMealListWithSender:" id="CNt-nw-5ig"/>
@@ -194,4 +199,7 @@
     <resources>
         <image name="default" width="131" height="131"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Osk-pb-UsG"/>
+    </inferredMetricsTieBreakers>
 </document>
