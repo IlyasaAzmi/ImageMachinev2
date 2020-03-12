@@ -34,7 +34,7 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             navigationItem.title = machine.name
             nameTextField.text   = machine.name
             photoImageView.image = machine.photo
-//            ratingControl.rating = meal.rating
+            //            ratingControl.rating = meal.rating
         }
         
         // Enable the Save button only if the text field has a valid Meal name.
@@ -106,7 +106,18 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
     }
     
     
