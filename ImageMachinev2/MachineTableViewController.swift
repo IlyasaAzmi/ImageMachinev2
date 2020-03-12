@@ -96,7 +96,7 @@ class MachineTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
-        case "AddItem":
+        case "AddMachine":
             os_log("Adding a new machine.", log: OSLog.default, type: .debug)
             
         case "ShowDetail":
