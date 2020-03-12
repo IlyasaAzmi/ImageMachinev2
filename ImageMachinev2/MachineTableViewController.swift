@@ -115,6 +115,9 @@ class MachineTableViewController: UITableViewController {
             let selectedMachine = machines[indexPath.row]
             machineDetailViewController.machine = selectedMachine
             
+        case "CameraScan":
+            os_log("Scan QR Code.", log: OSLog.default, type: .debug)
+            
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
             

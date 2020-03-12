@@ -16,6 +16,7 @@
 		ED94D443241A1F9900835CB0 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94D442241A1F9900835CB0 /* Machine.swift */; };
 		ED94D445241A228200835CB0 /* MachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94D444241A228200835CB0 /* MachineTableViewCell.swift */; };
 		ED94D447241A23E400835CB0 /* MachineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94D446241A23E400835CB0 /* MachineTableViewController.swift */; };
+		ED94D44C241A94E700835CB0 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94D44B241A94E700835CB0 /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		ED94D442241A1F9900835CB0 /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		ED94D444241A228200835CB0 /* MachineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineTableViewCell.swift; sourceTree = "<group>"; };
 		ED94D446241A23E400835CB0 /* MachineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineTableViewController.swift; sourceTree = "<group>"; };
+		ED94D44B241A94E700835CB0 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				ED94D446241A23E400835CB0 /* MachineTableViewController.swift */,
 				ED94D432241A098700835CB0 /* MachineViewController.swift */,
+				ED94D44B241A94E700835CB0 /* ScannerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED94D44C241A94E700835CB0 /* ScannerViewController.swift in Sources */,
 				ED94D447241A23E400835CB0 /* MachineTableViewController.swift in Sources */,
 				ED94D433241A098700835CB0 /* MachineViewController.swift in Sources */,
 				ED94D443241A1F9900835CB0 /* Machine.swift in Sources */,
