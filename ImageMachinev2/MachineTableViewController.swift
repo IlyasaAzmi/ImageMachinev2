@@ -28,6 +28,8 @@ class MachineTableViewController: UITableViewController {
         
         // Load the sample data.
         loadSampleMachines()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - Table view data source

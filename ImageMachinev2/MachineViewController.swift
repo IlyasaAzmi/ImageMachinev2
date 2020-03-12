@@ -15,7 +15,6 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var setTextButton: UIButton!
-    @IBOutlet weak var machineNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -33,6 +32,7 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         if let machine = machine {
             navigationItem.title = machine.name
             nameTextField.text   = machine.name
+            typeTextField.text = machine.type
             photoImageView.image = machine.photo
             //            ratingControl.rating = meal.rating
         }
@@ -56,7 +56,6 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        machineNameLabel.text = textField.text
         
         updateSaveButtonState()
         navigationItem.title = textField.text
@@ -122,10 +121,6 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     
     //MARK: Actions
-    
-    @IBAction func setTextButtonPressed(_ sender: UIButton) {
-        machineNameLabel.text = "Default Machine"
-    }
     
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard.
