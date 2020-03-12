@@ -30,24 +30,29 @@ class MachineTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return machines.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "MachineTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MachineTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        let machine = machines[indexPath.row]
+        
+        cell.nameLabel.text = machine.name
+        cell.photoImageView.image = machine.photo
 
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
