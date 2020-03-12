@@ -64,16 +64,40 @@
 			children = (
 				ED94D42E241A098700835CB0 /* AppDelegate.swift */,
 				ED94D430241A098700835CB0 /* SceneDelegate.swift */,
-				ED94D432241A098700835CB0 /* MachineViewController.swift */,
-				ED94D434241A098700835CB0 /* Main.storyboard */,
+				ED94D448241A8BF300835CB0 /* ViewControllers */,
+				ED94D449241A8C1200835CB0 /* Models */,
+				ED94D44A241A8C2300835CB0 /* Views */,
 				ED94D437241A098A00835CB0 /* Assets.xcassets */,
 				ED94D439241A098A00835CB0 /* LaunchScreen.storyboard */,
 				ED94D43C241A098A00835CB0 /* Info.plist */,
-				ED94D442241A1F9900835CB0 /* Machine.swift */,
-				ED94D444241A228200835CB0 /* MachineTableViewCell.swift */,
-				ED94D446241A23E400835CB0 /* MachineTableViewController.swift */,
 			);
 			path = ImageMachinev2;
+			sourceTree = "<group>";
+		};
+		ED94D448241A8BF300835CB0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED94D446241A23E400835CB0 /* MachineTableViewController.swift */,
+				ED94D432241A098700835CB0 /* MachineViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ED94D449241A8C1200835CB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ED94D442241A1F9900835CB0 /* Machine.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		ED94D44A241A8C2300835CB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED94D434241A098700835CB0 /* Main.storyboard */,
+				ED94D444241A228200835CB0 /* MachineTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
