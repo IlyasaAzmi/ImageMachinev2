@@ -25,7 +25,12 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
+        typeTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Meal name.
+        updateSaveButtonState()
     }
     
     //MARK: Text Field Delegate
@@ -35,8 +40,16 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         machineNameLabel.text = textField.text
+        
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     //MARK: UIImagepPickerControllerDelegate
@@ -104,6 +117,15 @@ class MachineViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         present(imagePickerController, animated: true, completion: nil)
         print("tapped")
+    }
+    
+    //MARK: Private Methods
+    
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        let type = typeTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty && !type.isEmpty
     }
     
 }
