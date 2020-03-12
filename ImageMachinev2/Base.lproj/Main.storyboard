@@ -54,9 +54,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pvb-QF-SMK">
-                                <rect key="frame" x="87" y="475" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="pvb-QF-SMK">
+                                <rect key="frame" x="87" y="522" width="240" height="240"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="hwR-al-fFS"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tSl-s8-60E" appends="YES" id="SUQ-Dz-e9W"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r44-he-gia">
                                 <rect key="frame" x="20" y="84" width="374" height="21"/>
@@ -78,9 +84,12 @@
                             <constraint firstItem="r44-he-gia" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="625-IM-Kol"/>
                             <constraint firstItem="Zqe-N3-5xv" firstAttribute="top" secondItem="C1W-Yx-DEt" secondAttribute="bottom" constant="20" id="9c5-x5-IyG"/>
                             <constraint firstItem="r44-he-gia" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9yL-3G-nY6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pvb-QF-SMK" secondAttribute="bottom" constant="100" id="IUv-JP-LrC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zqe-N3-5xv" secondAttribute="trailing" constant="20" id="K3o-D3-5hp"/>
+                            <constraint firstItem="pvb-QF-SMK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Nqr-rz-Maq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C1W-Yx-DEt" secondAttribute="trailing" constant="20" id="RBF-lr-dkA"/>
                             <constraint firstItem="Zqe-N3-5xv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Tmu-XQ-McK"/>
+                            <constraint firstItem="pvb-QF-SMK" firstAttribute="centerX" secondItem="pFk-Mh-ou7" secondAttribute="centerX" id="d1l-lh-PF8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r44-he-gia" secondAttribute="trailing" constant="20" id="dsR-EE-rXA"/>
                             <constraint firstItem="C1W-Yx-DEt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="l8f-jC-KKA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pFk-Mh-ou7" secondAttribute="trailing" constant="20" id="nEa-cf-ViA"/>
@@ -92,11 +101,17 @@
                     <connections>
                         <outlet property="machineNameLabel" destination="r44-he-gia" id="cdf-9g-ZSb"/>
                         <outlet property="nameTextField" destination="C1W-Yx-DEt" id="MMB-gx-fUK"/>
+                        <outlet property="photoImageView" destination="pvb-QF-SMK" id="tza-f1-n8F"/>
                         <outlet property="setTextButton" destination="pFk-Mh-ou7" id="dld-5e-FEr"/>
                         <outlet property="typeTextField" destination="Zqe-N3-5xv" id="GNk-3T-UdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tSl-s8-60E">
+                    <connections>
+                        <action selector="selectImageFromLibrary:" destination="BYZ-38-t0r" id="FGq-tm-iZ1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1402.8985507246377" y="129.91071428571428"/>
         </scene>
@@ -119,4 +134,7 @@
             <point key="canvasLocation" x="-804.34782608695662" y="129.91071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default" width="131" height="131"/>
+    </resources>
 </document>
