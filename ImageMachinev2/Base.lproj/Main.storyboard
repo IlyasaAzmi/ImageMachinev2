@@ -169,7 +169,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="XpJ-xz-ZXh">
                             <connections>
-                                <segue destination="cXe-46-6UW" kind="unwind" unwindAction="unwindToMealListWithSender:" id="CNt-nw-5ig"/>
+                                <segue destination="cXe-46-6UW" kind="unwind" unwindAction="unwindToMachinelListWithSender:" id="uOq-m4-jRt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

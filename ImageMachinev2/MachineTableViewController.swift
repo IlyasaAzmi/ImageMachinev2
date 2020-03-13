@@ -34,6 +34,10 @@ class MachineTableViewController: UITableViewController {
         }
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //hide separator style
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+
     }
     
     // MARK: - Table view data source
@@ -50,7 +54,7 @@ class MachineTableViewController: UITableViewController {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "MachineTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MachineTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            fatalError("The dequeued cell is not an instance of MachineTableViewCell.")
         }
         
         let machine = machines[indexPath.row]
@@ -133,15 +137,15 @@ class MachineTableViewController: UITableViewController {
     
     //MARK: Actions
     
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToMachinelList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MachineViewController, let machine = sourceViewController.machine {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
+                // Update an existing machine.
                 machines[selectedIndexPath.row] = machine
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
-                // Add a new meal.
+                // Add a new machine.
                 let newIndexPath = IndexPath(row: machines.count, section: 0)
                 machines.append(machine)
                 
