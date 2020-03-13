@@ -21,6 +21,11 @@ class Machine: NSObject, NSCoding {
     var qrcode: Int
     var lastMaintenanceDate: Date
     
+    //MARK: Archiving Paths
+     
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("machines")
+    
     //MARK: Types
      
     struct PropertyKey {
@@ -66,7 +71,7 @@ class Machine: NSObject, NSCoding {
 //            return nil
 //        }
         
-        // Because photo is an optional property of Meal, just use conditional cast.
+        // Because photo is an optional property of Machine, just use conditional cast.
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         
         let name = aDecoder.decodeObject(forKey: PropertyKey.name) as! String

@@ -26,8 +26,12 @@ class MachineTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Load the sample data.
-        loadSampleMachines()
+        if let savedMachines = loadMachines() {
+            machines += savedMachines
+        } else {
+            // Load the sample data.
+            loadSampleMachines()
+        }
         
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -70,6 +74,7 @@ class MachineTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             machines.remove(at: indexPath.row)
+            saveMachines()
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {
@@ -142,6 +147,8 @@ class MachineTableViewController: UITableViewController {
                 
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            
+            saveMachines()
         }
     }
     
@@ -164,6 +171,20 @@ class MachineTableViewController: UITableViewController {
         }
         
         machines += [machine1, machine2, machine3]
+    }
+    
+    private func saveMachines() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(machines, toFile: Machine.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("Machines successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save machines...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadMachines() -> [Machine]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Machine.ArchiveURL.path) as? [Machine]
     }
     
 }
