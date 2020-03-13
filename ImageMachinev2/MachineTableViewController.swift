@@ -191,5 +191,4 @@ class MachineTableViewController: UITableViewController {
     private func loadMachines() -> [Machine]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Machine.ArchiveURL.path) as? [Machine]
     }
-    
 }
