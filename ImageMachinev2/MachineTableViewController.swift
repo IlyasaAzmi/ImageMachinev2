@@ -61,6 +61,7 @@ class MachineTableViewController: UITableViewController {
         
         cell.nameLabel.text = machine.name
         cell.photoImageView.image = machine.photo
+        cell.dateLabel.text = "\(machine.lastMaintenanceDate)"
         
         // Configure the cell...
         
@@ -116,7 +117,7 @@ class MachineTableViewController: UITableViewController {
             }
             
             guard let selectedMachineCell = sender as? MachineTableViewCell else {
-                fatalError("Unexpected sender: \(sender)")
+                fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
             guard let indexPath = tableView.indexPath(for: selectedMachineCell) else {
@@ -130,7 +131,7 @@ class MachineTableViewController: UITableViewController {
             os_log("Scan QR Code.", log: OSLog.default, type: .debug)
             
         default:
-            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
             
         }
     }
